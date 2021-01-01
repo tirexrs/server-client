@@ -4,11 +4,12 @@ HEADER = 64
 PORT = int(input("Choose a port to connect to: "))
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
-SERVER = "192.168.1.26"
+SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
+
 
 def send(msg):
     message = msg.encode(FORMAT)
@@ -18,7 +19,8 @@ def send(msg):
     client.send(send_length)
     client.send(message)
     print(client.recv(2048).decode(FORMAT))
-    
+
+
 while True:
     message = input("Type a message: ")
     send(message)
