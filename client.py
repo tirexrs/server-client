@@ -1,7 +1,7 @@
 import socket
 
 HEADER = 64
-PORT = 5050
+PORT = int(input("Choose a port to connect to: "))
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
 SERVER = "192.168.1.26"
